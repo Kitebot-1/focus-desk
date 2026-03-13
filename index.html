@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Focus Desk</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Focus Desk</h1>
+    <p class="subtitle">A tiny desk for tasks, focus, and reflection.</p>
+  </header>
+
+  <main class="grid">
+    <!-- Tasks -->
+    <section class="card">
+      <h2>Tasks</h2>
+      <form id="taskForm" class="inline-form">
+        <input id="taskInput" type="text" placeholder="Add a task..." autocomplete="off" />
+        <button type="submit">Add</button>
+      </form>
+      <ul id="taskList" class="task-list"></ul>
+      <div class="task-footer">
+        <span id="taskCount">0 tasks</span>
+        <button id="clearDone" class="ghost">Clear done</button>
+      </div>
+    </section>
+
+    <!-- Pomodoro Timer -->
+    <section class="card">
+      <h2>Pomodoro</h2>
+      <div class="timer">
+        <div id="timeDisplay" class="time-display">25:00</div>
+        <div class="progress">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+      </div>
+      <div class="timer-controls">
+        <button id="startPause">Start</button>
+        <button id="resetTimer" class="ghost">Reset</button>
+      </div>
+      <div class="timer-settings">
+        <label>
+          Focus (min)
+          <input id="focusMins" type="number" min="1" max="90" value="25"/>
+        </label>
+        <label>
+          Break (min)
+          <input id="breakMins" type="number" min="1" max="30" value="5"/>
+        </label>
+      </div>
+      <p id="sessionLabel" class="session-label">Focus session</p>
+    </section>
+
+    <!-- Reflection -->
+    <section class="card">
+      <h2>Daily Reflection</h2>
+      <textarea id="reflection" rows="10" placeholder="What went well today? What’s next?"></textarea>
+      <div class="muted small">Auto-saved locally</div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>All data stays in your browser.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
