@@ -169,6 +169,24 @@ reflection.addEventListener("input", () => {
   }, 300);
 });
 
+// ----- Keyboard shortcuts -----
+// Escape → clear task input
+taskInput.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    taskInput.value = "";
+    taskInput.blur();
+  }
+});
+
+// Space → toggle timer (when not typing in a text field)
+document.addEventListener("keydown", (e) => {
+  if (e.key !== " ") return;
+  const tag = document.activeElement.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA") return;
+  e.preventDefault();
+  startPause.click();
+});
+
 // init
 renderTasks();
 updateDisplay();
